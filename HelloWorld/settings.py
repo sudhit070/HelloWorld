@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-)-&mf%tpgv_rl40p8x8o6q3dc@d5-!@#f0zkm@(9p^lemu_-_t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 
 
 # Application definition
@@ -53,12 +53,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'HelloWorld.urls'
+# AUTH_USER_MODEL = 'App_User.CustomUser'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'react-hello-world/build')
+            # os.path.join(BASE_DIR, 'react-hello-world/build')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -130,9 +131,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'react-hello-world/build/static')
-]
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'react-hello-world/build/static')
+# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
